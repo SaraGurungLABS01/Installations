@@ -13,8 +13,11 @@ curl -fsSL https://pkg.jenkins.io/debian/jenkins.io-2023.key | sudo tee /usr/sha
 # [signed-by=/usr/share/keyrings/jenkins-keyring.asc] indicates the repository's packages are signed by the Jenkins GPG key
 echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian binary/ | sudo tee /etc/apt/sources.list.d/jenkins.list > /dev/null
 
+sudo apt update
+
 # Install Jenkins from the added repository
 sudo apt-get install jenkins
 
 # Start the Jenkins service using systemd
 sudo systemctl start jenkins
+
